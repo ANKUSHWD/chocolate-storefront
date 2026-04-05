@@ -56,6 +56,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No valid items" }, { status: 400 });
     }
 
+    /* Stripe checkout disabled for deployment to avoid key issues
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -94,8 +95,10 @@ export async function POST(req: NextRequest) {
         source: "aura-luxury-storefront",
       },
     });
+    
+    return NextResponse.json({ url: session.url });*/
 
-    return NextResponse.json({ url: session.url });
+    return NextResponse.json({ url: `${baseUrl}/order-success?mock=true` });
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : "Internal server error";
     console.error("Stripe checkout error:", message);
