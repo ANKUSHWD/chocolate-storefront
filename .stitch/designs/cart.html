@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#351003",
+                      "surface-container-high": "#ede7de",
+                      "secondary-fixed-dim": "#fdb69d",
+                      "inverse-primary": "#dec1b3",
+                      "on-primary-container": "#aa9084",
+                      "surface-container-low": "#f9f3ea",
+                      "surface-container": "#f3ede4",
+                      "on-tertiary-container": "#889999",
+                      "primary-fixed": "#fbdcce",
+                      "tertiary-fixed-dim": "#b8cac9",
+                      "on-tertiary-fixed": "#0e1e1e",
+                      "secondary": "#87503c",
+                      "error": "#ba1a1a",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#0c1c1c",
+                      "on-primary-fixed": "#281810",
+                      "on-secondary-fixed-variant": "#6b3927",
+                      "outline-variant": "#d3c3bd",
+                      "primary": "#25160e",
+                      "background": "#fff9ef",
+                      "surface-dim": "#dfd9d1",
+                      "inverse-on-surface": "#f6f0e7",
+                      "tertiary-fixed": "#d4e6e5",
+                      "secondary-container": "#fdb69d",
+                      "on-primary-fixed-variant": "#574238",
+                      "surface-bright": "#fff9ef",
+                      "outline": "#81756f",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#705a4f",
+                      "on-secondary-container": "#794532",
+                      "on-secondary": "#ffffff",
+                      "surface": "#fff9ef",
+                      "on-surface": "#1d1b16",
+                      "surface-container-lowest": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "inverse-surface": "#32302a",
+                      "secondary-fixed": "#ffdbcf",
+                      "on-tertiary-fixed-variant": "#394a4a",
+                      "primary-fixed-dim": "#dec1b3",
+                      "surface-variant": "#e7e2d9",
+                      "surface-container-highest": "#e7e2d9",
+                      "on-error": "#ffffff",
+                      "primary-container": "#3c2a21",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#213131",
+                      "on-background": "#1d1b16",
+                      "on-surface-variant": "#4f4540"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Playfair Display", "serif"],
+                      "serif": ["Playfair Display", "serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Inter", "sans-serif"]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        .glass-overlay {
+            background: rgba(29, 27, 22, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-bleed {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary/30">
+<!-- SHOP BACKGROUND (The context behind the cart) -->
+<main class="fixed inset-0 grid grid-cols-1 md:grid-cols-12 min-h-screen overflow-hidden">
+<div class="hidden md:block md:col-span-7 h-full bg-surface-container-low overflow-hidden">
+<div class="h-full w-full flex items-center justify-center p-20">
+<div class="relative w-full h-full max-w-2xl">
+<img alt="Luxury chocolate box close up" class="w-full h-full object-cover rounded-xl shadow-2xl" data-alt="Close-up of an exquisite open box of artisanal chocolates with different textures and gold leaf accents on a marble table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD--TXsIwmmadNDSditQa43QFABBH9ffWfR_PN6dVf7ELdNC870hUWAMcUvzs2CyNeOnWE3CuijK7UJY9lJiLdaIhtG5sxW3HVDkkmEIzAu1AH8v_HCvJrxMylVTL-QYCF7jRcgWOOoZCKsNe54GE2ufsUprH54eILhuyD_I3hq3tc4uygNZ-sNXEraWYV-hY1NICaADRLfVIntaPQGoPUTUkXDuJM14-kDEIamD1BQoMjT9jARygZ25JAdn0Up9kOZJxlGyOK2EgHx"/>
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-surface-container-highest p-4 rounded-xl shadow-xl transform rotate-3">
+<img alt="Single praline" class="w-full h-full object-cover rounded" data-alt="A single hand-dipped dark chocolate praline with a sea salt garnish resting on a silk ribbon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcWfztw0KGiZ3mc7BD6PIHB7jTe1aWX0CMVLzrFggM-IWqWEQR2JwdujLC6VBn35cVKq8QvVjuzeeXIksuDDbcx72uWkjltsVPkOaGn6iGj2ILQOAyluFK87LME2sUxNUzSbPEGh73TF0Sfk78KWcso4wbJULJMsJITA7-NvUZ8ulA8hsGdJY1QFLgAPu-J9vQy13Pk8i3z1iCBNELJWITSXKBOau3AM93rvXG4pU4Bg8HK77tV7uLF53ouCK3TbnUVdh1z_ygmBt2"/>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 h-full bg-surface p-12 flex flex-col justify-center">
+<h1 class="font-headline text-6xl font-black text-primary leading-tight mb-6">Noir Ganache</h1>
+<p class="text-on-surface-variant text-lg max-w-md mb-8 leading-relaxed">A symphony of 72% single-origin cacao, hand-tempered to a mirror sheen and filled with a velvet reduction of Madagascar vanilla.</p>
+<div class="flex gap-4">
+<div class="w-24 h-1 bg-secondary"></div>
+<span class="font-label text-xs tracking-widest uppercase text-secondary font-bold">The Sommelier's Pick</span>
+</div>
+</div>
+</main>
+<!-- NAVIGATION ANCHOR (TopAppBar from JSON) -->
+<header class="fixed top-0 w-full z-40 bg-[#fff9ef]/80 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full">
+<div class="text-2xl font-serif text-[#25160e] italic">Noir Ganache</div>
+<nav class="hidden md:flex gap-10">
+<a class="text-[#25160e] font-serif hover:text-[#87503c] transition-colors duration-300" href="#">Collections</a>
+<a class="text-[#25160e] font-serif hover:text-[#87503c] transition-colors duration-300" href="#">Artisanal</a>
+<a class="text-[#25160e] font-serif hover:text-[#87503c] transition-colors duration-300" href="#">The Gallery</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">favorite</button>
+<button class="relative material-symbols-outlined text-primary hover:scale-110 transition-transform">
+                shopping_bag
+                <span class="absolute -top-1 -right-1 w-4 h-4 bg-secondary text-[10px] text-white flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</header>
+<!-- DRAWER OVERLAY -->
+<div class="fixed inset-0 z-50 glass-overlay flex justify-end">
+<!-- THE CART DRAWER (35% Width Alignment) -->
+<div class="w-full md:w-[35%] h-full bg-[#F5EFE6] shadow-2xl flex flex-col transform transition-transform duration-500 ease-out">
+<!-- Header -->
+<div class="flex justify-between items-center px-8 h-24 shrink-0">
+<h2 class="font-headline text-3xl font-bold text-primary italic">Your Collection</h2>
+<button class="group p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary group-hover:rotate-90 transition-transform duration-300">close</span>
+</button>
+</div>
+<!-- Scrollable Cart Items Area -->
+<div class="flex-1 overflow-y-auto px-8 py-4 space-y-12">
+<!-- Item 1: Noir Ganache -->
+<div class="flex gap-6 group">
+<div class="w-32 h-32 shrink-0 bg-surface-container overflow-hidden rounded-lg">
+<img alt="Noir Ganache" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A perfectly square dark chocolate truffle with a minimalist cocoa nib topping on a cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSnZe6I_vDWQ4YNbn8m_QLRbP8y61h7SC4TnWB-VMQ7avQWp1JVEMlhzJozME5bSzub2u0eibmAHzyvtUjHlqMghFPHtjguxThvHpBi7jg2V88bYXfGbIeVIMH6G71CugG0ofVFdXJ3v42XJ0q06Gb09cb2fJmpTyg1I7xe2t4HT6Sdu1lXtK-fbNnCjUTLgpSUJZnZhAxyXV4sOcdFUOJFCvLc1LLb01wophMjyWpbbdKc4qXJekAHHT8jB3_QRSD6ehd3RxL6Z8M"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-1">
+<div>
+<h3 class="font-headline text-xl text-primary mb-1">Noir Ganache</h3>
+<p class="text-secondary font-semibold">$4.50</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center bg-surface-container-low rounded-full px-3 py-1 gap-4">
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-label text-sm font-medium w-4 text-center">1</span>
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="text-[#89523E] font-label text-xs uppercase tracking-widest font-bold hover:underline underline-offset-4">Remove</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Rosemary Honey -->
+<div class="flex gap-6 group">
+<div class="w-32 h-32 shrink-0 bg-surface-container overflow-hidden rounded-lg">
+<img alt="Rosemary Honey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A light milk chocolate praline drizzled with golden honey and a tiny sprig of fresh rosemary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ5YZsBpW0iobL-aL793ayKYlL_duA0_nzZo-b6FlIPudTjIJ6dsh7SKomR4xJcDZqgycKzhCV2IgbE7iG5P8klPs8J_6cANbSQfKgG7hhc1tADAJs9mJ_GqAOBxYwoSixSA1F2vdnglzUIc6hOvRkHPu4HTwanGPgFJ5K1TjhZXYncMBgGlk0vJD6KWjA1WF41UFyAN7L5kPLWfI9PFJK_ISuJxxZN2DZ7sorVXV0SMV5tb4CFnpOJ9MkFytvxvJYp9ZjoDRuiA-7"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-1">
+<div>
+<h3 class="font-headline text-xl text-primary mb-1">Rosemary Honey</h3>
+<p class="text-secondary font-semibold">$3.75</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center bg-surface-container-low rounded-full px-3 py-1 gap-4">
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="font-label text-sm font-medium w-4 text-center">1</span>
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<button class="text-[#89523E] font-label text-xs uppercase tracking-widest font-bold hover:underline underline-offset-4">Remove</button>
+</div>
+</div>
+</div>
+<!-- Added Value Section -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary/20">
+<p class="font-headline italic text-primary leading-relaxed">"Chocolate is a sensory ritual. Our ganache is infused for 24 hours to ensure the aromatic notes of the ritual are preserved."</p>
+<p class="mt-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary font-black">— The Chocolatier</p>
+</div>
+</div>
+<!-- Footer Section (Totals & CTA) -->
+<div class="p-8 bg-surface-container-lowest border-t border-primary/5">
+<div class="space-y-3 mb-8">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label text-sm uppercase tracking-wider">Subtotal</span>
+<span class="text-primary font-headline text-xl font-bold">$8.25</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label text-sm uppercase tracking-wider">Shipping</span>
+<span class="text-on-surface-variant font-label text-xs italic">Calculated at next step</span>
+</div>
+</div>
+<button class="w-full h-16 bg-gradient-to-r from-[#3C2A21] to-[#25160e] text-white font-label font-bold tracking-widest uppercase rounded-lg shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3">
+                    Proceed to Checkout
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<p class="mt-6 text-center text-primary/60 font-body italic text-sm">
+                    Complimentary tasting notes included with every order.
+                </p>
+</div>
+</div>
+</div>
+<!-- Hidden Navigation Drawer (Mapping from JSON Requirement) -->
+<aside class="hidden fixed right-0 h-full w-96 z-50 bg-[#fff9ef] flex flex-col p-10 justify-between shadow-2xl">
+<div class="space-y-12">
+<div class="text-xl font-serif text-[#25160e]">Noir Ganache</div>
+<nav class="flex flex-col gap-6">
+<a class="font-serif text-lg tracking-wide text-[#87503c] italic hover:pl-4 transition-all duration-300" href="#">Artisanal Pralines</a>
+<a class="font-serif text-lg tracking-wide text-[#25160e]/70 hover:pl-4 transition-all duration-300" href="#">Seasonal Collections</a>
+<a class="font-serif text-lg tracking-wide text-[#25160e]/70 hover:pl-4 transition-all duration-300" href="#">The Cocoa Ritual</a>
+<a class="font-serif text-lg tracking-wide text-[#25160e]/70 hover:pl-4 transition-all duration-300" href="#">Our Heritage</a>
+</nav>
+</div>
+<button class="w-full py-4 border border-primary text-primary font-label uppercase tracking-widest hover:bg-primary hover:text-white transition-colors">
+            Explore All Flavors
+        </button>
+</aside>
+</body></html>

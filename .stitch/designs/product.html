@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Noir Ganache | The Edible Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#213131",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#889999",
+                        "surface-container-high": "#ede7de",
+                        "on-tertiary-fixed-variant": "#394a4a",
+                        "primary": "#25160e",
+                        "inverse-on-surface": "#f6f0e7",
+                        "surface-dim": "#dfd9d1",
+                        "primary-fixed-dim": "#dec1b3",
+                        "inverse-surface": "#32302a",
+                        "on-primary-container": "#aa9084",
+                        "tertiary-fixed-dim": "#b8cac9",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1d1b16",
+                        "surface-container": "#f3ede4",
+                        "on-secondary-fixed": "#351003",
+                        "primary-container": "#3c2a21",
+                        "on-background": "#1d1b16",
+                        "surface-variant": "#e7e2d9",
+                        "secondary-fixed": "#ffdbcf",
+                        "on-surface-variant": "#4f4540",
+                        "surface-container-highest": "#e7e2d9",
+                        "on-primary-fixed-variant": "#574238",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#87503c",
+                        "surface-container-low": "#f9f3ea",
+                        "surface": "#fff9ef",
+                        "secondary-fixed-dim": "#fdb69d",
+                        "outline": "#81756f",
+                        "on-primary-fixed": "#281810",
+                        "error": "#ba1a1a",
+                        "background": "#fff9ef",
+                        "surface-bright": "#fff9ef",
+                        "primary-fixed": "#fbdcce",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#0c1c1c",
+                        "on-secondary-container": "#794532",
+                        "on-tertiary-fixed": "#0e1e1e",
+                        "on-secondary-fixed-variant": "#6b3927",
+                        "outline-variant": "#d3c3bd",
+                        "surface-tint": "#705a4f",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fdb69d",
+                        "inverse-primary": "#dec1b3",
+                        "tertiary-fixed": "#d4e6e5",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .tonal-transition {
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fff9ef]/80 dark:bg-[#1d1b16]/80 backdrop-blur-md flex justify-between items-center px-8 py-6 w-full">
+<div class="text-2xl font-serif tracking-tighter text-[#25160e] dark:text-[#fff9ef]">
+            The Edible Editorial
+        </div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-[#25160e] dark:text-[#fff9ef] font-bold border-b border-[#25160e] hover:text-[#87503c] transition-colors duration-300" href="#">Collections</a>
+<a class="text-[#3c2a21]/70 dark:text-[#fff9ef]/70 hover:text-[#87503c] transition-colors duration-300" href="#">Our Story</a>
+<a class="text-[#3c2a21]/70 dark:text-[#fff9ef]/70 hover:text-[#87503c] transition-colors duration-300" href="#">Tasting Rooms</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="hover:text-[#87503c] transition-colors duration-300 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="md:hidden">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Editorial Product Section -->
+<section class="flex flex-col md:flex-row min-h-[921px]">
+<!-- Left Side: Massive Macro Photography -->
+<div class="w-full md:w-[60%] h-[614px] md:h-auto sticky top-24 overflow-hidden bg-surface-container">
+<img alt="Noir Ganache" class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]" data-alt="Extreme macro close-up of a dark chocolate truffle sliced in half, showing a glossy smooth ganache center with rich brown tones and soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDevKagwM42e-S1EI2PbejyxvBQKjZtLKV2vQ3VTYMliLmrTx2a4dgLsO8K3ac9YX7U0MT2G0gwk6PeGCCtH2fe1GEdMaX-YQVM_io6HzsTof9RVdYSj7IDbVudthKXnwnEHXApX2FoWywYg0Vz1GZnvrBo14g_bDewgX9qi7FQg2u43AXxtVOFfRCLaKaTHR2UvWZjm--X8kCBGKo80UvBASTkZg49lrttQTTfoWG1IsGXbU2SMAW9Bo3qUZQ7u0sBT99KatEr3n3T"/>
+</div>
+<!-- Right Side: Editorial Content -->
+<div class="w-full md:w-[40%] px-8 md:px-16 py-12 md:py-20 flex flex-col justify-center bg-surface">
+<!-- Breadcrumbs -->
+<nav class="mb-8">
+<ol class="flex items-center space-x-2 text-label-md text-on-surface-variant/60 font-body tracking-wide uppercase text-[10px]">
+<li>Home</li>
+<li><span class="mx-2">/</span></li>
+<li>Shop</li>
+<li><span class="mx-2">/</span></li>
+<li class="text-secondary font-bold">Signature Series</li>
+</ol>
+</nav>
+<h1 class="font-headline text-6xl md:text-8xl text-primary leading-none tracking-tighter mb-4">
+                    Noir <br/> Ganache
+                </h1>
+<p class="text-3xl font-headline italic text-secondary mb-10">$4.50</p>
+<div class="space-y-8 mb-12">
+<p class="text-on-surface-variant leading-relaxed text-lg max-w-md">
+                        Experience the profound depth of 85% Madagascar cacao. This is not merely a chocolate; it is a velvet suspension of flavor, emphasizing a mouthfeel that transitions from a crisp snap to an impossibly smooth, melty richness.
+                    </p>
+<!-- Tasting Notes Chips -->
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-surface-variant text-on-surface-variant text-xs font-medium rounded-md tracking-wider flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="water_drop">water_drop</span>
+                            Smoked Sea Salt
+                        </span>
+<span class="px-4 py-2 bg-surface-variant text-on-surface-variant text-xs font-medium rounded-md tracking-wider flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="forest">forest</span>
+                            Earthy
+                        </span>
+<span class="px-4 py-2 bg-surface-variant text-on-surface-variant text-xs font-medium rounded-md tracking-wider flex items-center">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="bolt">bolt</span>
+                            Intense
+                        </span>
+</div>
+</div>
+<!-- Interaction Area -->
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-surface-container-high rounded-full px-6 py-3">
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<span class="mx-6 font-bold text-primary">1</span>
+<button class="text-primary hover:text-secondary"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+<button class="flex-1 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-full py-5 px-8 font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-all active:scale-95">
+                        Add to Cart
+                    </button>
+</div>
+</div>
+</section>
+<!-- Nutritional Elegance Section -->
+<section class="mt-24 px-8 md:px-24 py-32 bg-surface-container-low">
+<div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div>
+<h2 class="font-headline text-4xl text-primary mb-12">Nutritional Elegance</h2>
+<div class="space-y-8 border-t border-outline-variant/15 pt-8">
+<div class="flex justify-between items-end pb-4 border-b border-outline-variant/15">
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant/70">Principal Ingredients</span>
+<span class="font-body text-primary text-right max-w-[200px]">85% Dark Cacao, Organic Cane Sugar, Madagascar Vanilla, Fleur de Sel.</span>
+</div>
+<div class="flex justify-between items-end pb-4 border-b border-outline-variant/15">
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant/70">Dietary Profile</span>
+<span class="font-body text-primary">Vegan, Soy-Free, Non-GMO</span>
+</div>
+<div class="flex justify-between items-end pb-4">
+<span class="font-label text-sm uppercase tracking-widest text-on-surface-variant/70">Shelf Life</span>
+<span class="font-body text-primary">4 Months from tempering</span>
+</div>
+</div>
+</div>
+<div class="bg-surface p-12 rounded-xl shadow-sm border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="wine_bar">wine_bar</span>
+<h3 class="font-headline text-2xl text-primary mb-4">Curated Pairings</h3>
+<p class="text-on-surface-variant leading-relaxed italic mb-8">
+                            "The high tannin content and complex berry notes of the Madagascar bean find their perfect mirror in a robust Cabernet Sauvignon or an aged single-malt Scotch."
+                        </p>
+<div class="flex gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Pairing" class="w-full h-full object-cover" data-alt="Close up of a glass of red wine being poured against a warm dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmkxnB4wnm-jrteBavGi3m5u-hiSAvz37np-yb9IoLK9sI4REYtJ-gqNe3zNlVuiwBBscagFWDVcinq-9kOcG_lO6kIrnowdl_PH-FG9xloenPI4Au69Rv1zvmX-dZ5xVJ2aftvTiTSfABf3kuITWeknXBrF96vj2ZU3yfmiUJde0a-VmCHNt1V3GG-p9PRnwXWKMbdNUQlH1MZ22lN3L1OLq4m-lR3K1MYb1o40YgY3XqWk9sW86rRz8GdKR2d5uIReTmJzaJbjdw"/>
+</div>
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Pairing" class="w-full h-full object-cover" data-alt="A small glass of scotch whiskey with a large ice cube on a wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPV-KyGOSb7IqdEtdjRiqmpkY-GyQdoA4LvxLoAfpkovfmTKWGoiq4AA5_GrxX-pC5G0Y1NSBx7NbmnpmU7yiNfI6sqc_y4J6A_w78uQarD75ZLErdsVc3MLrhpcKoyvNhdQu8WLlq7_HsRaCafI0FtnG3aJm3pHohZsmyltYAXY25hdJajOgeUda2dVDwrr6qzpMLzN5UiWCoo4aTZwtr9zOzfBXk3AYh_QoP-bt9Y_sDr7RlARqJXEAGD0DiL9ddIVFVVG3tY9yp"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#3c2a21] dark:bg-[#1d1b16] flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full mt-24">
+<div class="text-xl font-serif text-[#fff9ef] mb-8 md:mb-0">
+            The Edible Editorial
+        </div>
+<div class="flex flex-wrap justify-center gap-8 mb-8 md:mb-0">
+<a class="text-[#fff9ef]/60 font-serif italic hover:text-[#87503c] transition-colors" href="#">Sustainability</a>
+<a class="text-[#fff9ef]/60 font-serif italic hover:text-[#87503c] transition-colors" href="#">Shipping</a>
+<a class="text-[#fff9ef]/60 font-serif italic hover:text-[#87503c] transition-colors" href="#">Wholesale</a>
+<a class="text-[#fff9ef]/60 font-serif italic hover:text-[#87503c] transition-colors" href="#">Privacy</a>
+</div>
+<div class="text-[#fff9ef]/60 font-body text-xs uppercase tracking-widest">
+            © 2024 The Edible Editorial. Crafted for the Craving.
+        </div>
+</footer>
+</body></html>

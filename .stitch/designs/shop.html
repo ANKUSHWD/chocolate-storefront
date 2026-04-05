@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#d3c3bd",
+                    "on-surface-variant": "#4f4540",
+                    "on-tertiary-container": "#889999",
+                    "surface-bright": "#fff9ef",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#0c1c1c",
+                    "inverse-surface": "#32302a",
+                    "on-secondary-container": "#794532",
+                    "surface-tint": "#705a4f",
+                    "tertiary-container": "#213131",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1d1b16",
+                    "secondary-container": "#fdb69d",
+                    "secondary-fixed-dim": "#fdb69d",
+                    "surface-container": "#f3ede4",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#0e1e1e",
+                    "error": "#ba1a1a",
+                    "background": "#fff9ef",
+                    "surface-container-highest": "#e7e2d9",
+                    "surface": "#fff9ef",
+                    "surface-container-low": "#f9f3ea",
+                    "tertiary-fixed": "#d4e6e5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#fbdcce",
+                    "on-primary-fixed-variant": "#574238",
+                    "inverse-primary": "#dec1b3",
+                    "on-surface": "#1d1b16",
+                    "on-secondary-fixed": "#351003",
+                    "secondary": "#87503c",
+                    "tertiary-fixed-dim": "#b8cac9",
+                    "surface-dim": "#dfd9d1",
+                    "on-tertiary-fixed-variant": "#394a4a",
+                    "surface-variant": "#e7e2d9",
+                    "on-secondary-fixed-variant": "#6b3927",
+                    "on-primary": "#ffffff",
+                    "primary": "#25160e",
+                    "primary-container": "#3c2a21",
+                    "outline": "#81756f",
+                    "primary-fixed-dim": "#dec1b3",
+                    "on-primary-fixed": "#281810",
+                    "inverse-on-surface": "#f6f0e7",
+                    "secondary-fixed": "#ffdbcf",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#ede7de",
+                    "on-primary-container": "#aa9084"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 10px;
+        }
+        .masonry-item-short { grid-row-end: span 45; }
+        .masonry-item-long { grid-row-end: span 55; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#F5EFE6] dark:bg-[#1D1B16] flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto sticky top-0 z-50 transition-all duration-300">
+<div class="flex items-center gap-12">
+<a class="font-serif text-2xl font-bold text-[#3C2A21] dark:text-[#F5EFE6] uppercase tracking-widest" href="#">Aura Luxury</a>
+<div class="hidden md:flex gap-8">
+<a class="text-[#89523E] border-b-2 border-[#89523E] pb-1 font-label text-sm font-medium tracking-wide" href="#">Shop</a>
+<a class="text-[#3C2A21] dark:text-[#F5EFE6] opacity-80 hover:text-[#89523E] transition-colors duration-300 font-label text-sm font-medium tracking-wide" href="#">Our Story</a>
+<a class="text-[#3C2A21] dark:text-[#F5EFE6] opacity-80 hover:text-[#89523E] transition-colors duration-300 font-label text-sm font-medium tracking-wide" href="#">Contact</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:text-[#89523E] transition-colors duration-300 scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-2xl" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-1 ring-outline-variant/20">
+<img alt="Customer Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a sophisticated person with warm natural lighting and soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGGXJ-SZQD7I9Vod8zanKB6pOtxKeRz-Ty-ZSGtP_RNHHSTxoseF8Srsea6PwtN4k2kNxyNDruZuY0eY49U6Ndlfmt0W_BDTTkBlo89CBNw5Lo6BSOe1YeBLgsrBcpKC0p0gnv4P95pjVg4pRYLH4MGnOEjwMTpFMn_k0qC4PVbX4E98PPGuUSe3MfN8VJxW0eUMA69K23_80sN_xnDJ-ltxqG4OgP--ahPCKfvo1TURVGCsLT6p1uA8aIXwM2An64Br-3OjP-2qPq"/>
+</div>
+</div>
+</nav>
+<!-- Page Header -->
+<header class="max-w-screen-2xl mx-auto px-8 pt-20 pb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="space-y-4">
+<h1 class="font-headline text-6xl md:text-8xl text-primary leading-tight tracking-tighter">The Collection</h1>
+<p class="text-secondary font-label italic text-lg max-w-md">Curated sensory experiences, sculpted in pure cacao and rare botanicals.</p>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-label text-sm font-medium transition-all hover:scale-105 active:scale-95">All</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">Cacao %</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">Flavor Notes</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">Dark</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-label text-sm font-medium transition-all hover:bg-surface-container-highest hover:scale-105 active:scale-95">Milk</button>
+</div>
+</div>
+</header>
+<!-- Product Grid (Asymmetric/Masonry) -->
+<main class="max-w-screen-2xl mx-auto px-8 pb-32">
+<div class="masonry-grid gap-12">
+<!-- Product Card 1 -->
+<div class="masonry-item-long group relative flex flex-col justify-end">
+<div class="absolute inset-0 bg-surface-container-low rounded-xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(29,27,22,0.06)]">
+<img alt="Noir Ganache" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of a single dark artisanal chocolate truffle with gold leaf garnish on a dark textured ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA7g0tVWRRlES2LRLT9KwdLfBbFnpip696HBooAGS12fFoACkxOirVFEew9m7szTt-0Tp5H-WWc_aj5brII8O8NqdvWTy0lAZXGz7ORsYs828bakXR3vcsjuMv4LlLKrSVGuT6YEiLAWIdHRHnTcdL0VIVZB3ViL5vA-DUAu8zg2oxO1t_mmMfG7A4L98w5iDGJkdX72QVWxUv9s1JwJh5Pzi7kXyrx737q1bIjwlcsZWXvw__pwxBinfhH5na0izbOXaokVPlVlC0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-60"></div>
+</div>
+<div class="relative p-8 text-white z-10 space-y-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-xs font-label uppercase tracking-widest opacity-80">Signature Series</span>
+<h3 class="font-headline text-3xl">Noir Ganache</h3>
+</div>
+<p class="font-serif text-xl">$4.50</p>
+</div>
+<p class="text-sm font-body opacity-0 group-hover:opacity-90 transition-opacity duration-300 line-clamp-2">85% Madagascar cacao with a whisper of smoked sea salt.</p>
+<button class="mt-4 flex items-center justify-center w-12 h-12 rounded-full bg-secondary text-on-secondary transition-all hover:scale-110 active:scale-90 shadow-xl">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="masonry-item-short group relative flex flex-col">
+<div class="w-full h-full bg-surface-container rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] relative">
+<img alt="Rosemary Honey" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="stack of milk chocolate squares with visible honey drizzle and fresh rosemary sprigs on a cream marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIsxlSMVHQZ2TAyWU9Cw-4gaHETXd--C3KPzvX6m9UknQmjtlQJS6kMwlGh6Q9CIfhFj2lcf9gs_9w-pou1xeUbUWWLgav5uW2JjkyIJrtFQ2wocNw6N0UjwZl5mq_Y56Umx_FXsx7jm62k2zXpi6qETBZNHA-Jj0rY0WLl8sqyLnOcji4LJWKYwTqUX3NNsOoQahPAbbKsdQv-Ruj0ydePmD4iusYSDDsyEKouNfwuUEQ_UXzzHy4D0Y_yO1zbUmDwq8NuJPd-qMt"/>
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="py-6 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-primary">Rosemary Honey</h3>
+<p class="font-label text-secondary font-medium">$3.75</p>
+</div>
+<p class="text-sm text-on-surface-variant">Wildflower infusion in velvet milk chocolate.</p>
+</div>
+<button class="absolute bottom-24 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+</button>
+</div>
+<!-- Product Card 3 -->
+<div class="masonry-item-long group relative flex flex-col mt-12 md:mt-0">
+<div class="w-full h-full bg-surface-container-high rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] relative">
+<img alt="Espresso Dust" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="artisan chocolate truffle dusted with fine espresso powder resting on a bed of roasted coffee beans with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhONeiEpMHy4phvhCyIgMqCq0-Hi7VmszLKIIhRoVPaxMlIxv2IlYkcxN1XoqBbFb4DHXoPkX4hEMFykiVSqfGNylv91ZfZl4RG_IdBOAcCeQIRKk5SRHWeP7CkJXrgpsgy0snbNfu82gt7HiLu0PggCTLfHq5uf5CKInfnvPbuecIJRcMyRhcljtS-mDwNIFYeJKxageHiD2tBkGYrtQ1zdRbWw1cRERBVcaGS1qqzgenKvdPb4kz_Cbgah0K4L7Fe6KcvG4YhI75"/>
+</div>
+<div class="py-6 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-primary">Espresso Dust</h3>
+<p class="font-label text-secondary font-medium">$4.00</p>
+</div>
+<p class="text-sm text-on-surface-variant">Triple-shot Arabica blend encased in 70% dark shell.</p>
+</div>
+<button class="absolute bottom-24 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Product Card 4 -->
+<div class="masonry-item-short group relative flex flex-col md:-mt-24">
+<div class="w-full h-full bg-surface-container-low rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] relative">
+<img alt="Lavender Bloom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="pale purple tinted chocolate bonbon with floral patterns on a minimal soft pink background with elegant shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3kJYt4s-3xIbNDa0Sv23UyzBYCFgspRFNuLBO_z0h92oePrtN6NyyGIOxRGYVgBDUSNPWVuC7rOEwV25UyDVJO0uqWNEoj5QJBnYFLluCcb38NxSoqWdKJvX99mq46r8phXGgTrDImSdTkkG-hLtcjuNTMZNMYdDEK2NUfMC3npwsy3_cK60VDM4B0EJEORWlPTJ1eSXwqHJIGAJ8IvcTX_veLz78xi7GpPjbSUSzUQjIEjqQKfW9cLvH4aYnXBFW-IvdnNeS_Ns0"/>
+</div>
+<div class="py-6 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-primary">Lavender Bloom</h3>
+<p class="font-label text-secondary font-medium">$5.25</p>
+</div>
+<p class="text-sm text-on-surface-variant">Provencal lavender and white chocolate silk.</p>
+</div>
+<button class="absolute bottom-24 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Product Card 5 -->
+<div class="masonry-item-long group relative flex flex-col">
+<div class="w-full h-full bg-surface-container-highest rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] relative">
+<img alt="Pistachio Crème" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="sliced artisanal chocolate bar revealing bright green pistachio cream filling with chopped nuts on a wooden cutting board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD452hyNwUbYqP8Y7S_2PnPuBhXOf0CgquRGys9KLQApXSin05oIu63ECD5khSq5mCFvTKMcIFqtdHWcMZndLEl13nllvvvXv4LbCgtV2FcumVkYDAXM0hJVo_C0qIm-m3kSnmaN350U4W1QzvkB3rqTX7hdHHBWpH6gKi_bet-A7IQSLB04X0CqmVrNMHar2DDRQbkun89IumErZ5ZRLIwXtlbL5r9FQ7GY57nPu9EAgNZulh5l3CVqrETi-ShZPruddz03li5YLKy"/>
+</div>
+<div class="py-6 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-primary">Pistachio Crème</h3>
+<p class="font-label text-secondary font-medium">$6.50</p>
+</div>
+<p class="text-sm text-on-surface-variant">Roasted Sicilian pistachio butter and milk chocolate.</p>
+</div>
+<button class="absolute bottom-24 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Product Card 6 -->
+<div class="masonry-item-short group relative flex flex-col">
+<div class="w-full h-full bg-surface-container-low rounded-xl overflow-hidden transition-all duration-500 group-hover:scale-[1.02] relative">
+<img alt="Chilli Heat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="dark chocolate pieces with dried red chilli flakes on top arranged artistically on a dark slate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGc7h3czXAOHKDOVn6XdBK0-Tt1HBLmntAVko6t6CvwA0_7S3ppfT-KqfUr0VceCEFrx05yFRXBjGT8WeJc6wIkwdiiyhXqVBxSsTXcG0kKD_Unxd5E8JGBpzxd6vOgOE3O6hU6g6eOIEuuzDHtYkAsFlCqz2-RZTqFMmGLOmDTx_p6vEZDwCaUzLQCz5oey6kRLhjkSKUGGApZR6KdY6fXRr5LOx7rotDS9WYI_twWSVdAHDwbnSSpmyjg0YDSwxdDOBGfbY1Jkc8"/>
+</div>
+<div class="py-6 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline text-2xl text-primary">Chilli Heat</h3>
+<p class="font-label text-secondary font-medium">$4.50</p>
+</div>
+<p class="text-sm text-on-surface-variant">Ancho chilli and dark chocolate fusion.</p>
+</div>
+<button class="absolute bottom-24 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#3C2A21] dark:bg-[#120B08] text-[#F5EFE6]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<p class="font-serif italic text-xl text-[#F5EFE6]">Aura Luxury</p>
+<p class="text-sm opacity-70 font-body leading-relaxed max-w-xs">Elevating the simple joy of chocolate into a multisensory editorial experience.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif text-lg">Shop</h4>
+<div class="flex flex-col gap-2">
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Truffle Boxes</a>
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Bars</a>
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Limited Editions</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif text-lg">Company</h4>
+<div class="flex flex-col gap-2">
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Shipping</a>
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Returns</a>
+<a class="text-[#F5EFE6] opacity-70 hover:opacity-100 hover:text-[#89523E] font-label text-sm transition-all duration-300" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-serif text-lg">Connect</h4>
+<div class="flex gap-4">
+<a class="hover:text-[#89523E] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="hover:text-[#89523E] transition-colors" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
+</div>
+<div class="pt-4">
+<p class="text-xs opacity-50">© 2024 Aura Luxury Chocolates. Crafted with Cacao.</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

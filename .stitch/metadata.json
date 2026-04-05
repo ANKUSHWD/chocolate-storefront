@@ -1,0 +1,49 @@
+{
+  "name": "projects/13148158825429319932",
+  "projectId": "13148158825429319932",
+  "title": "Aura Luxury Chocolates",
+  "visibility": "PRIVATE",
+  "createTime": "2026-04-04T19:54:15.709145Z",
+  "updateTime": "2026-04-04T19:54:15.709145Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {},
+  "screens": {
+    "index": {
+      "id": "d443006caa2845d6945afd91ad1bf6cc",
+      "sourceScreen": "projects/13148158825429319932/screens/d443006caa2845d6945afd91ad1bf6cc",
+      "x": 0,
+      "y": 0,
+      "width": 2560,
+      "height": 6614
+    },
+    "shop": {
+      "id": "4169dd79c32047a1b7d4ffee005c0667",
+      "sourceScreen": "projects/13148158825429319932/screens/4169dd79c32047a1b7d4ffee005c0667",
+      "x": 2660,
+      "y": 0,
+      "width": 2560,
+      "height": 14304
+    },
+    "product": {
+      "id": "7a986802a66d4a2aaa13adfd2f7d4a95",
+      "sourceScreen": "projects/13148158825429319932/screens/7a986802a66d4a2aaa13adfd2f7d4a95",
+      "x": 5320,
+      "y": 0,
+      "width": 2560,
+      "height": 4062
+    },
+    "cart": {
+      "id": "da526d0a751547e1b5dc38f5faa5574d",
+      "sourceScreen": "projects/13148158825429319932/screens/da526d0a751547e1b5dc38f5faa5574d",
+      "x": 7980,
+      "y": 0,
+      "width": 2560,
+      "height": 2048
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}
