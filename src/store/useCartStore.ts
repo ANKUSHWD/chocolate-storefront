@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 export interface CartItem {
   id: string;
   title: string;
-  price: number; // in dollars (e.g. 4.50)
+  price: number;
   img: string;
   quantity: number;
 }
@@ -12,6 +12,8 @@ export interface CartItem {
 interface CartState {
   isOpen: boolean;
   items: CartItem[];
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
   openCart: () => void;
   closeCart: () => void;
   addItem: (item: Omit<CartItem, "quantity">) => void;
@@ -25,6 +27,8 @@ export const useCartStore = create<CartState>()(
     (set) => ({
       isOpen: false,
       items: [],
+      _hasHydrated: false,
+      setHasHydrated: (state) => set({ _hasHydrated: state }),
       openCart: () => set({ isOpen: true }),
       closeCart: () => set({ isOpen: false }),
       addItem: (newItem) =>
@@ -60,8 +64,9 @@ export const useCartStore = create<CartState>()(
       clearCart: () => set({ items: [], isOpen: false }),
     }),
     {
-      name: "aura-luxury-cart", // localStorage key
-      partialize: (state) => ({ items: state.items }), // only persist items, not UI state
+      name: "aura-luxury-cart",
+      partialize: (state) => ({ items: state.items }),
+      skipHydration: true,
     }
   )
 );

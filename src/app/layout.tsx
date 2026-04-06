@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { CartDrawer } from "@/components/CartDrawer";
+import { StoreHydration } from "@/components/StoreHydration";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <style>{`.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }`}</style>
       </head>
       <body className="min-h-full flex flex-col pt-0 m-0 bg-[#050505] text-[#F5EFE6]">
+        <StoreHydration />
         {children}
         <CartDrawer />
       </body>
