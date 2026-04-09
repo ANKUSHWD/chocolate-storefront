@@ -1,12 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { useCartStore } from "@/store/useCartStore";
-import { products, formatPrice } from "@/lib/products";
+import { products, formatPrice, filterProducts, type FilterKey } from "@/lib/products";
+
+const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: "all",    label: "All" },
+  { key: "cacao",  label: "Cacao %" },
+  { key: "flavor", label: "Flavor Notes" },
+  { key: "dark",   label: "Dark" },
+  { key: "milk",   label: "Milk" },
+];
 
 export default function Shop() {
   const { openCart, addItem, items } = useCartStore();
   const cartCount = items.reduce((acc, item) => acc + item.quantity, 0);
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("all");
+
+  const visibleProducts = filterProducts(products, activeFilter);
 
   return (
     <div className="bg-[#050505] min-h-screen">
@@ -42,49 +54,61 @@ export default function Shop() {
             <p className="text-[#B58266] font-sans italic text-lg max-w-md">Curated sensory experiences, sculpted in pure cacao and rare botanicals.</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <button className="px-6 py-2.5 rounded-full bg-[#B58266] text-[#050505] font-sans text-sm font-bold transition-all hover:scale-105 active:scale-95">All</button>
-            <button className="px-6 py-2.5 rounded-full bg-[#1A0B08] text-[#F5EFE6] border border-[#3C2A21] font-sans text-sm font-medium transition-all hover:bg-[#3C2A21] hover:scale-105 active:scale-95">Cacao %</button>
-            <button className="px-6 py-2.5 rounded-full bg-[#1A0B08] text-[#F5EFE6] border border-[#3C2A21] font-sans text-sm font-medium transition-all hover:bg-[#3C2A21] hover:scale-105 active:scale-95">Flavor Notes</button>
-            <button className="px-6 py-2.5 rounded-full bg-[#1A0B08] text-[#F5EFE6] border border-[#3C2A21] font-sans text-sm font-medium transition-all hover:bg-[#3C2A21] hover:scale-105 active:scale-95">Dark</button>
-            <button className="px-6 py-2.5 rounded-full bg-[#1A0B08] text-[#F5EFE6] border border-[#3C2A21] font-sans text-sm font-medium transition-all hover:bg-[#3C2A21] hover:scale-105 active:scale-95">Milk</button>
+            {FILTERS.map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => setActiveFilter(key)}
+                className={`px-6 py-2.5 rounded-full font-sans text-sm font-bold transition-all hover:scale-105 active:scale-95 ${
+                  activeFilter === key
+                    ? "bg-[#B58266] text-[#050505]"
+                    : "bg-[#1A0B08] text-[#F5EFE6] border border-[#3C2A21] font-medium hover:bg-[#3C2A21]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
       </header>
 
       <main className="max-w-screen-2xl mx-auto px-8 pb-32">
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[10px] gap-x-12">
-          {products.map((product, idx) => (
-            <div key={idx} className={`${product.span} group relative flex flex-col justify-end ${product.mt}`}>
-              <div className="absolute inset-0 bg-[#0A0A0A] rounded-xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(181,130,102,0.1)] border border-[#1A0B08]">
-                <img alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" src={`https://lh3.googleusercontent.com/aida-public/${product.img}`}/>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/40 to-transparent"></div>
-              </div>
-              <div className="relative p-8 text-[#F5EFE6] z-10 space-y-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="text-xs font-sans uppercase tracking-widest text-[#B58266] mb-1 block">{product.subtitle}</span>
-                    <h3 className="font-serif text-3xl">{product.title}</h3>
+        {visibleProducts.length === 0 ? (
+          <p className="text-[#F5EFE6]/50 font-sans italic text-center py-24">No products match this filter.</p>
+        ) : (
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] auto-rows-[10px] gap-x-12">
+            {visibleProducts.map((product, idx) => (
+              <div key={idx} className={`${product.span} group relative flex flex-col justify-end ${product.mt}`}>
+                <div className="absolute inset-0 bg-[#0A0A0A] rounded-xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(181,130,102,0.1)] border border-[#1A0B08]">
+                  <img alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" src={`https://lh3.googleusercontent.com/aida-public/${product.img}`}/>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/40 to-transparent"></div>
+                </div>
+                <div className="relative p-8 text-[#F5EFE6] z-10 space-y-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <span className="text-xs font-sans uppercase tracking-widest text-[#B58266] mb-1 block">{product.subtitle}</span>
+                      <h3 className="font-serif text-3xl">{product.title}</h3>
+                    </div>
+                    <p className="font-serif text-xl border-b border-[#B58266]/30 pb-0.5">{formatPrice(product.priceInCents)}</p>
                   </div>
-                  <p className="font-serif text-xl border-b border-[#B58266]/30 pb-0.5">{formatPrice(product.priceInCents)}</p>
-                </div>
-                <p className="text-sm font-sans opacity-0 group-hover:opacity-80 transition-opacity duration-300 line-clamp-2 text-[#F5EFE6]/80 pt-2">{product.desc}</p>
-                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                  <button
-                    onClick={() => addItem({
-                      id: product.id,
-                      title: product.title,
-                      price: product.priceInCents / 100,
-                      img: product.img,
-                    })}
-                    className="flex items-center justify-center w-12 h-12 rounded-full bg-[#B58266] text-[#050505] transition-all hover:scale-110 active:scale-90 shadow-[0_0_20px_rgba(181,130,102,0.4)]"
-                  >
-                    <span className="material-symbols-outlined">add_shopping_cart</span>
-                  </button>
+                  <p className="text-sm font-sans opacity-0 group-hover:opacity-80 transition-opacity duration-300 line-clamp-2 text-[#F5EFE6]/80 pt-2">{product.desc}</p>
+                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <button
+                      onClick={() => addItem({
+                        id: product.id,
+                        title: product.title,
+                        price: product.priceInCents / 100,
+                        img: product.img,
+                      })}
+                      className="flex items-center justify-center w-12 h-12 rounded-full bg-[#B58266] text-[#050505] transition-all hover:scale-110 active:scale-90 shadow-[0_0_20px_rgba(181,130,102,0.4)]"
+                    >
+                      <span className="material-symbols-outlined">add_shopping_cart</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
 
       <footer className="bg-[#0A0A0A] text-[#F5EFE6] border-t border-[#1A0B08]">
