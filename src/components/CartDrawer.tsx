@@ -71,7 +71,7 @@ export function CartDrawer() {
             items.map((item) => (
               <div key={item.id} className="flex gap-6 group">
                 <div className="w-32 h-32 shrink-0 bg-[#f3ede4] overflow-hidden rounded-lg">
-                  <img alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={`https://lh3.googleusercontent.com/aida-public/${item.img}`} />
+                  <img alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={`https://lh3.googleusercontent.com/aida-public/${item.img}`} loading="lazy" decoding="async" />
                 </div>
                 <div className="flex flex-col justify-between py-1 flex-1">
                   <div>

@@ -79,7 +79,7 @@ export default function Shop() {
             {visibleProducts.map((product, idx) => (
               <div key={idx} className={`${product.span} group relative flex flex-col justify-end ${product.mt}`}>
                 <div className="absolute inset-0 bg-[#0A0A0A] rounded-xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(181,130,102,0.1)] border border-[#1A0B08]">
-                  <img alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" src={`https://lh3.googleusercontent.com/aida-public/${product.img}`}/>
+                  <img alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100" src={`https://lh3.googleusercontent.com/aida-public/${product.img}`} loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 via-[#050505]/40 to-transparent"></div>
                 </div>
                 <div className="relative p-8 text-[#F5EFE6] z-10 space-y-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useCartStore } from "@/store/useCartStore";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -15,24 +14,17 @@ export default function Home() {
     offset: ["start start", "end end"]
   });
 
-  // Shattering Diagonal Panels Animation
-  
-  // Panel 1 - Top Left shard
   const p1X = useTransform(scrollYProgress, [0, 0.6], [0, -300]);
   const p1Y = useTransform(scrollYProgress, [0, 0.6], [0, 400]);
   const p1R = useTransform(scrollYProgress, [0, 0.6], [15, -25]);
 
-  // Panel 2 - Center shard
   const p2Y = useTransform(scrollYProgress, [0, 0.6], [0, -150]);
   const p2Scale = useTransform(scrollYProgress, [0, 0.6], [1, 1.4]);
 
-  // Panel 3 - Bottom Right shard
   const p3X = useTransform(scrollYProgress, [0, 0.6], [0, 400]);
   const p3Y = useTransform(scrollYProgress, [0, 0.6], [0, 500]);
   const p3R = useTransform(scrollYProgress, [0, 0.6], [15, 45]);
 
-  // Text animation for the massive 'INDULGE' text.
-  // Fades and moves up as we scroll
   const textY = useTransform(scrollYProgress, [0, 0.4], [0, -150]);
   const mainTextOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
@@ -59,7 +51,7 @@ export default function Home() {
       </header>
 
       <main className="min-h-screen">
-        {/* Shattering Diagonal Panels Overlay */}
+        {/* Shattering Diagonal Panels — GPU-composited via will-change */}
         <section ref={containerRef} className="h-[250vh] w-full relative">
           <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row items-center justify-between overflow-hidden bg-[#050505]">
             
@@ -67,10 +59,9 @@ export default function Home() {
               className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1A0B08] to-[#050505]"
             />
 
-            {/* Left Side: Massive Text, Fading & Sliding Up */}
             <motion.div 
               className="relative z-20 flex flex-col items-start justify-center w-full md:w-1/2 px-8 pl-12 md:pl-24"
-              style={{ y: textY, opacity: mainTextOpacity }}
+              style={{ y: textY, opacity: mainTextOpacity, willChange: "transform, opacity" }}
             >
               <h1 className="font-serif text-7xl md:text-[9rem] text-[#B58266] font-bold uppercase tracking-widest leading-none">
                 INDULGE
@@ -80,34 +71,51 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Right Side: Shattering Chocolate Panels */}
             <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] flex items-center justify-center pointer-events-none z-10 overflow-visible translate-x-12">
               <div className="relative w-96 h-[600px] flex gap-2">
                 
                 {/* Panel 1 */}
                 <motion.div 
                   className="w-1/3 h-[90%] mt-8 relative overflow-hidden rounded-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#3C2A21]"
-                  style={{ x: p1X, y: p1Y, rotate: p1R }}
+                  style={{ x: p1X, y: p1Y, rotate: p1R, willChange: "transform" }}
                 >
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH" className="absolute top-[-10%] left-[-50%] w-[300%] h-[120%] max-w-none object-cover" alt="Texture 1" />
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH"
+                    className="absolute top-[-10%] left-[-50%] w-[300%] h-[120%] max-w-none object-cover"
+                    alt="Texture 1"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-black/20" />
                 </motion.div>
 
                 {/* Panel 2 */}
                 <motion.div 
                   className="w-1/3 h-full relative overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border-t border-b border-[#3C2A21] z-20"
-                  style={{ y: p2Y, scale: p2Scale, rotate: 15 }}
+                  style={{ y: p2Y, scale: p2Scale, rotate: 15, willChange: "transform" }}
                 >
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH" className="absolute top-[-15%] left-[-150%] w-[300%] h-[120%] max-w-none object-cover" alt="Texture 2" />
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH"
+                    className="absolute top-[-15%] left-[-150%] w-[300%] h-[120%] max-w-none object-cover"
+                    alt="Texture 2"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
                 </motion.div>
 
                 {/* Panel 3 */}
                 <motion.div 
                   className="w-1/3 h-[85%] mt-12 relative overflow-hidden rounded-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#3C2A21]"
-                  style={{ x: p3X, y: p3Y, rotate: p3R }}
+                  style={{ x: p3X, y: p3Y, rotate: p3R, willChange: "transform" }}
                 >
-                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH" className="absolute top-[-20%] left-[-250%] w-[300%] h-[120%] max-w-none object-cover" alt="Texture 3" />
+                  <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH"
+                    className="absolute top-[-20%] left-[-250%] w-[300%] h-[120%] max-w-none object-cover"
+                    alt="Texture 3"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-black/30" />
                 </motion.div>
 
@@ -130,13 +138,25 @@ export default function Home() {
             </p>
           </div>
           <div className="aspect-video w-full overflow-hidden border border-[#1A0B08]">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH" className="w-full h-full object-cover opacity-80 mix-blend-lighten" alt="Cacao Sourcing" />
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDReScb8LYbGY72csnnJGDrrGH4246Kc7qyc5JnjwSuvHXDOk1QpSR2K175eL3qNKr3dOYcDcNv4hrDRjnn42_L06_HMTlfCNvRScdoZ9tK0lP3EzJl1uAE0Aw0A79GIyi4Z3bcXS6QpDPWiRyVfnRacknCCMjeMvVpWgoZ2vKVT0hp3Uu0JX3U1XzRS-C6P7pPdVZvjsVj3gbwyf7077w-QGP4yhm6RxoISFBOWdgQcSPndseWsG7u_rLMGBhCg8tJGnf1zE67v9PH"
+              className="w-full h-full object-cover opacity-80 mix-blend-lighten"
+              alt="Cacao Sourcing"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </section>
 
         <section className="py-32 px-8 max-w-7xl mx-auto border-t border-[#1A0B08] grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 aspect-square w-full overflow-hidden border border-[#1A0B08]">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA7g0tVWRRlES2LRLT9KwdLfBbFnpip696HBooAGS12fFoACkxOirVFEew9m7szTt-0Tp5H-WWc_aj5brII8O8NqdvWTy0lAZXGz7ORsYs828bakXR3vcsjuMv4LlLKrSVGuT6YEiLAWIdHRHnTcdL0VIVZB3ViL5vA-DUAu8zg2oxO1t_mmMfG7A4L98w5iDGJkdX72QVWxUv9s1JwJh5Pzi7kXyrx737q1bIjwlcsZWXvw__pwxBinfhH5na0izbOXaokVPlVlC0" className="w-full h-full object-cover opacity-80 mix-blend-screen" alt="Chocolatier Mastery" />
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA7g0tVWRRlES2LRLT9KwdLfBbFnpip696HBooAGS12fFoACkxOirVFEew9m7szTt-0Tp5H-WWc_aj5brII8O8NqdvWTy0lAZXGz7ORsYs828bakXR3vcsjuMv4LlLKrSVGuT6YEiLAWIdHRHnTcdL0VIVZB3ViL5vA-DUAu8zg2oxO1t_mmMfG7A4L98w5iDGJkdX72QVWxUv9s1JwJh5Pzi7kXyrx737q1bIjwlcsZWXvw__pwxBinfhH5na0izbOXaokVPlVlC0"
+              className="w-full h-full object-cover opacity-80 mix-blend-screen"
+              alt="Chocolatier Mastery"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <span className="text-[#B58266] font-sans text-xs uppercase tracking-[0.3em] block mb-2">The Mastery</span>
@@ -156,13 +176,25 @@ export default function Home() {
             </p>
           </div>
           <div className="aspect-video w-full overflow-hidden border border-[#1A0B08]">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSWr007O3Bu26eutdswP10qShw7RhhO-31_4NrbP8MXx2k0UzaPAUe8kY2V-rQWrcpb4LnjhBxAbysNYu1h2Wyki8HdiLGbn3b8PAHtyDVMiFnwoZ4AjQ2zcqf--BNRvaCS62fy3luM73Ti_-NUJSzTvPSknfgqTnvs3BPBDhZTly2X5Qmy2FMseLr73-uQikLbdbu0B0NQE_TimzFUQ_uSF9HjsEbolbA59Rv5htgoJqTQ9zo8TD_xrs6cDh0Ihk9ItQg_TfYkrb" className="w-full h-full object-cover opacity-80 mix-blend-lighten" alt="Chocolate Pairings" />
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfSWr007O3Bu26eutdswP10qShw7RhhO-31_4NrbP8MXx2k0UzaPAUe8kY2V-rQWrcpb4LnjhBxAbysNYu1h2Wyki8HdiLGbn3b8PAHtyDVMiFnwoZ4AjQ2zcqf--BNRvaCS62fy3luM73Ti_-NUJSzTvPSknfgqTnvs3BPBDhZTly2X5Qmy2FMseLr73-uQikLbdbu0B0NQE_TimzFUQ_uSF9HjsEbolbA59Rv5htgoJqTQ9zo8TD_xrs6cDh0Ihk9ItQg_TfYkrb"
+              className="w-full h-full object-cover opacity-80 mix-blend-lighten"
+              alt="Chocolate Pairings"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </section>
 
         <section className="py-32 px-8 max-w-7xl mx-auto border-t border-[#1A0B08] grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 aspect-square w-full overflow-hidden border border-[#1A0B08]">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXRBXrwQqyrpAArxU1tY8WsHoi0pySdPWVqbQFk6x_aqaoxGkAGJW8zfX1yc9OucvVIJTG9pa5YFaia5pg8ENOlrsIBmfQgph51RXdwyLzB80OVv9nxuzF0PWkcc5ToAt-3tZzi78itPRrIlCQ4U6q3OKUZ8xQ0B7BNEUA6sKRkMjh-s3zkJkeoJiMlvcTQbaZLMeHFgVoxeVWw15OGVw4azuVvHYTALTZbzCq0gsoYU61uS9pG408nEo_bhqS1R3CBp9FHpawvSW4" className="w-full h-full object-cover opacity-80 mix-blend-screen bg-black" alt="Bespoke Gifting" />
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXRBXrwQqyrpAArxU1tY8WsHoi0pySdPWVqbQFk6x_aqaoxGkAGJW8zfX1yc9OucvVIJTG9pa5YFaia5pg8ENOlrsIBmfQgph51RXdwyLzB80OVv9nxuzF0PWkcc5ToAt-3tZzi78itPRrIlCQ4U6q3OKUZ8xQ0B7BNEUA6sKRkMjh-s3zkJkeoJiMlvcTQbaZLMeHFgVoxeVWw15OGVw4azuVvHYTALTZbzCq0gsoYU61uS9pG408nEo_bhqS1R3CBp9FHpawvSW4"
+              className="w-full h-full object-cover opacity-80 mix-blend-screen bg-black"
+              alt="Bespoke Gifting"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <span className="text-[#B58266] font-sans text-xs uppercase tracking-[0.3em] block mb-2">Client Privileges</span>
@@ -189,9 +221,18 @@ export default function Home() {
             ].map((truffle, i) => (
               <div key={i} className={`group relative flex flex-col space-y-6 ${truffle.mt || ''}`}>
                 <div className="aspect-[4/5] overflow-hidden bg-[#1A0B08] relative">
-                  <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" alt={truffle.title} src={`https://lh3.googleusercontent.com/aida-public/${truffle.img}`} />
-                  <button onClick={() => addItem({ id: truffle.title, title: truffle.title, price: parseFloat(truffle.price.replace('$', '')), img: truffle.img })} className="absolute bottom-6 right-6 w-14 h-14 bg-[#050505]/70 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-[#B58266] hover:text-[#050505] text-[#F5EFE6]">
-                    <span className="material-symbols-outlined">+</span>
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                    alt={truffle.title}
+                    src={`https://lh3.googleusercontent.com/aida-public/${truffle.img}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <button
+                    onClick={() => addItem({ id: truffle.title, title: truffle.title, price: parseFloat(truffle.price.replace('$', '')), img: truffle.img })}
+                    className="absolute bottom-6 right-6 w-14 h-14 bg-[#050505]/70 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 hover:bg-[#B58266] hover:text-[#050505] text-[#F5EFE6]"
+                  >
+                    <span className="material-symbols-outlined">add_shopping_cart</span>
                   </button>
                 </div>
                 <div className="flex justify-between items-start">
@@ -218,7 +259,13 @@ export default function Home() {
             ].map((flavor, i) => (
               <div key={i} className="min-w-[320px] md:min-w-[450px] snap-center">
                 <div className="relative aspect-video group overflow-hidden bg-[#1A0B08]">
-                  <img className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000" alt={flavor.name} src={`https://lh3.googleusercontent.com/aida-public/${flavor.img}`} />
+                  <img
+                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                    alt={flavor.name}
+                    src={`https://lh3.googleusercontent.com/aida-public/${flavor.img}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-[#050505] to-transparent">
                     <span className="text-[#B58266] font-sans text-xs uppercase tracking-widest mb-2">{flavor.type}</span>
                     <h4 className="text-[#F5EFE6] font-serif text-3xl">{flavor.name}</h4>
